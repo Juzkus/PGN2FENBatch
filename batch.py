@@ -1,13 +1,8 @@
 import sys
+import chess
+import chess.pgn
 
-# Change this to wherever you clone the pgnToFen repository
-# Original: https://github.com/SindreSvendby/pgnToFen
-PGN_TO_FEN_PATH = 'C:\\github.com\\Juzkus\\pgnToFen'
-
-# Allows import statements to find modules in other directories.
-sys.path.append(PGN_TO_FEN_PATH)
-
-import pgntofen
+# See: https://python-chess.readthedocs.io/en/latest/index.html
 
 # Application State
 
@@ -15,6 +10,12 @@ global pgnFilePath
 global outputFilePath
 
 # Function Definitions
+
+def parse_pgn_file():
+    pgnConverter = pgntofen.PgnToFen()
+    pgnConverter.resetBoard()
+
+    return pgnConverter.pgnFile(pgnFilePath)
 
 def get_fen_string(obj):
     print(obj)
@@ -70,4 +71,26 @@ if __name__ == "__main__":
     print('PGN File: ' + pgnFilePath + "\n")
     print('OUT File: ' + outputFilePath + "\n")
 
+    # Parse PGN File
+
+    pgn = open(pgnFilePath)
+    game = chess.pgn.read_game(pgn)
+    print(game)
+    game = chess.pgn.read_game(pgn)
+    print(game)
+    game = chess.pgn.read_game(pgn)
+    print(game)
+
+    sys.exit()
+    
+    board = first_game.board()
+
+    for move in first_game.mainline_moves():
+        board.push(move)
+    
+    print(board.fen())
+
+    #print(first_game)
+    #sys.exit()
+    #print("event: " + evt)
     print("Process complete.")
