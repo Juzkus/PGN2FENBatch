@@ -16,11 +16,10 @@ Python 3
 
 ### Library
 
-[pgnToFen - Original](https://github.com/SindreSvendby/pgnToFen)
-
-I have also created a fork of this repository for convenience:
-
-[pgnToFen - Fork](https://github.com/Juzkus/pgnToFen)
+python-chess
+```python
+pip install python-chess
+```
 
 ## Usage
 
