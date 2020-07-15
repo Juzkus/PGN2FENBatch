@@ -30,7 +30,3 @@ This will create the file "BobbyFischer.fen" with a list of FEN strings in the s
 ```
 python batch.py -pgn 'c:\users\your_user\desktop\BobbyFischer.pgn' -out 'c:\users\your_user\desktop\BobbyFischer.fen'
 ```
-
-## Important Note
-
-The batch.py file requires the user to define the location of the pgnToFen module. Change the PGN_TO_FEN_PATH variable in the code to point to wherever you clone the pgnToFen code.
