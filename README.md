@@ -28,5 +28,5 @@ pip install python-chess
 This will create the file "BobbyFischer.fen" with a list of FEN strings in the same order as BobbyFischer.pgn.
 
 ```
-python batch.py -pgn 'c:\users\your_user\desktop\BobbyFischer.pgn' -out 'c:\users\your_user\desktop\BobbyFischer.fen'
+python batch.py --pgn 'c:\users\your_user\desktop\BobbyFischer.pgn' --out 'c:\users\your_user\desktop\BobbyFischer.fen'
 ```
