@@ -71,26 +71,29 @@ if __name__ == "__main__":
     print('PGN File: ' + pgnFilePath + "\n")
     print('OUT File: ' + outputFilePath + "\n")
 
+    out = open(outputFilePath, "w");
+
     # Parse PGN File
 
     pgn = open(pgnFilePath)
-    game = chess.pgn.read_game(pgn)
-    print(game)
-    game = chess.pgn.read_game(pgn)
-    print(game)
-    game = chess.pgn.read_game(pgn)
-    print(game)
 
-    sys.exit()
+    # Loop through games
     
-    board = first_game.board()
+    game = chess.pgn.read_game(pgn)
 
-    for move in first_game.mainline_moves():
-        board.push(move)
+    while game != None:
+
+        board = game.board()
+
+        for move in game.mainline_moves():
+            board.push(move)
     
-    print(board.fen())
+        # Write to output
+        out.write(board.fen() + "\n")
+        
+        # Next Game
+        game = chess.pgn.read_game(pgn)
 
-    #print(first_game)
-    #sys.exit()
-    #print("event: " + evt)
+    out.close()
+
     print("Process complete.")
